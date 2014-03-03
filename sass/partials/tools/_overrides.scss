@@ -1,0 +1,13 @@
+.italic {
+	font-style: italic;
+}
+
+#ssba {
+	article.category-work & {
+		display: none;
+	}
+}
+
+.edit-link a {
+	font-weight: 100;
+}

@@ -1,0 +1,195 @@
+article {
+	border-bottom: 1px solid #ccc;
+	padding: 1em 0;
+	.single-post &,
+	.tag,
+	.blog & {
+		background-color: #FFF;
+		border-bottom: none;
+		border: 1px solid #F3F3F3;
+		padding: 0.5em 1.2em;
+		margin: 10px 0;
+	}
+}
+
+.sidebar .entry-header .entry-meta {
+	padding: 0;
+}
+
+.entry-thumbnail img {
+	display: block;
+	margin: 10px auto 10px;
+}
+
+.entry-header {
+	margin-bottom: 20px;
+}
+
+.entry-title {
+	display: inline-block;
+	font-size: 36px;
+	font-weight: bold;
+	margin: 0 0 5px;
+	@include at-breakpoint($wide-mobile) {
+		font-size: 40px;
+	}
+}
+
+.entry-title a {
+	padding: 0 5px;
+	color: $brown;
+}
+
+.entry-title a:hover {
+	color: $yellow;
+	background-color: $aquablue;
+}
+
+/**
+ * 5.2 Entry Meta
+ * ----------------------------------------------------------------------------
+ */
+
+.entry-meta {
+	clear: both;
+	font-size: 14px;
+}
+
+.entry-meta a {
+	color: $blue;
+	padding: 2px;
+	&:hover {
+		background-color: $blue;
+		color: $white;
+	}
+}
+
+.entry-meta > span {
+	@include at-breakpoint($tablet) {
+		margin-right: 20px;
+	}
+}
+
+.entry-meta > span:last-child {
+	margin-right: 0;
+}
+
+.featured-post:before {
+	content: "\f308";
+	margin-right: 4px;
+}
+
+.entry-date {
+	font-size: 22px;
+	font-weight: 100;
+}
+
+.entry-date .date a:before {
+	content: '\f307';
+	margin-right: 4px;
+	font-size: 22px;
+	vertical-align: middle;
+}
+
+.comments-link {
+	float: right;
+	.blog & {
+		float: none;
+		display: inline-block;
+	}
+	a {
+		font-size: 26px;
+		&:before {
+			content: "\f300";
+			margin-right: 4px;
+			font-size: 30px
+		}
+	}
+}
+
+.entry-meta .author a:before {
+	content: "\f304";
+	position: relative;
+
+}
+
+.categories-links a:first-child:before {
+	content: "\f301";
+}
+
+.tags-links a:first-child:before {
+	content: "\f302";
+}
+
+.edit-link a:before {
+	content: "\f411";
+	position: relative;
+	font-size: 30px;
+	vertical-align: bottom;
+	font-weight: 100;
+}
+
+.single-author .entry-meta .author,
+.sticky.format-standard .entry-meta .date,
+.sticky.format-audio .entry-meta .date,
+.sticky.format-chat .entry-meta .date,
+.sticky.format-image .entry-meta .date,
+.sticky.format-gallery .entry-meta .date {
+	display: none;
+}
+
+/**
+ * 5.3 Entry Content
+ * ----------------------------------------------------------------------------
+ */
+
+.entry-content {
+	-webkit-hyphens: auto;
+	-moz-hyphens:    auto;
+	-ms-hyphens:     auto;
+	hyphens:         auto;
+	word-wrap: break-word;
+	color: #646464;
+	font-size: 20px;
+}
+
+.comment-content a {
+	padding: 0 5px;
+}
+
+.entry-content a:hover,
+.comment-content a:hover {
+	color: $yellow;
+	background-color: $aquablue;
+}
+
+.entry-content h3 {
+	margin: 5px 0;
+}
+
+.entry-content blockquote {
+	font-size: 20px;
+	border-left: 2px $yellow solid;
+	padding-left: 10px;
+}
+
+.entry-content blockquote cite,
+.entry-content blockquote small {
+	font-size: 16px;
+}
+.entry-content .smallcontent {
+	font-size: 14px;
+	font-weight: 100;
+}
+
+.entry-content img.alignright,
+.entry-content .wp-caption.alignright {
+	margin-right: -60px;
+}
+.read-more {
+	display: block
+}
+
+footer.entry-meta {
+	margin-top: 24px;
+}

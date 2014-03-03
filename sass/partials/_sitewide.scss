@@ -1,0 +1,260 @@
+.custom-background {
+	background-size: cover;
+	z-index: -999;
+	width: 100%;
+}
+/**
+ * Basic Structure
+ * ---------------------------------------------------------------------------
+ */
+
+#page {
+	overflow: hidden;
+	@include container();
+	@if ($show-grid-backgrounds) {
+  	@include susy-grid-background;
+	}
+	@include at-breakpoint($wide-mobile) {
+    @include container;
+    @if ($show-grid-backgrounds) {
+  		@include susy-grid-background;
+		}
+  }
+  @include at-breakpoint($tablet) {
+    @include container;
+    @if ($show-grid-backgrounds) {
+  		@include susy-grid-background;
+		}
+  }
+  @include at-breakpoint($desktop) {
+    @include container;
+    margin-bottom: 50px;
+    @if ($show-grid-backgrounds) {
+  		@include susy-grid-background;
+		}
+  }
+}
+
+#main {
+	overflow: hidden;
+	margin-top: 60px;
+	background-color: #FAFAFA;
+	.category-work & {
+		margin-top: 10px;
+	}
+}
+.site-main .sidebar-container {
+	margin-top: 115px;
+}
+
+.site-main .sidebar-inner {
+	// margin: 0 auto;
+	// max-width: 1040px;
+}
+
+.home-link-wrapper {
+	margin-bottom: 50px;
+	.home-link {
+		clear: both;
+		color: $blue;
+		&:hover {
+			-webkit-transition: width 400ms ease, background 400ms ease;
+			transition:         width 400ms ease, background 400ms ease;
+		}
+		&:visited {
+			color: $blue;
+		}
+		.site-title {
+			color: $black;
+			font-weight: bold;
+			margin: 0;
+			padding: 70px 0 15px;
+	  	@include font-size(20, 40);
+			@include at-breakpoint($tablet) {
+				padding: 60px 0 15px;
+	  		@include font-size(30, 50);
+			}
+			@include at-breakpoint($desktop) {
+			  @include font-size(40, 50);
+			}
+		}
+		.site-description {
+			color: $black;
+			font: 300 24px "Lato", Helvetica, sans-serif;
+			margin: 0;
+		}
+	}
+}
+
+.site-header .search-form {
+	position: absolute;
+	right: 20px;
+	top: 1px;
+}
+
+.site-header .search-field {
+	background-color: transparent;
+	background-image: url(../images/search-icon.png);
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	background-size: 24px 24px;
+	border: none;
+	cursor: pointer;
+	height: 37px;
+	margin: 3px 0;
+	padding: 0 0 0 34px;
+	position: relative;
+	-webkit-transition: width 400ms ease, background 400ms ease;
+	transition:         width 400ms ease, background 400ms ease;
+	width: 0;
+	&:before {
+		content: '\f400';
+	}
+}
+
+.site-header .search-field:focus {
+	background: $white;
+	cursor: text;
+	outline: 0;
+	width: 230px;
+}
+
+// CONTENT MAIN PART
+.content-area {
+}
+
+.site-content {
+	// border-left: yellow 2px solid;
+	padding-left: 1em;
+	@include at-breakpoint($tablet) {
+		@include suffix(2);
+	}
+}
+.hentry {
+	// padding: 40px 0;
+}
+
+/**
+ * 5.10 Search Results/No posts
+ * ----------------------------------------------------------------------------
+ */
+
+.page-header {
+	background-color: none;
+}
+
+.page-title {
+	font: 300 30px "Lato", Helvetica, sans-serif;
+	margin: 0 auto;
+	padding: 30px 0;
+	width: 100%;
+}
+
+.page-content {
+	margin: 0 auto;
+	padding: 40px 0;
+	width: 100%;
+}
+
+.sidebar .page-content {
+	margin: 0 auto;
+	padding: 40px 376px 40px 60px;
+}
+
+
+.archive-header {
+	background: none;
+	margin-bottom: 10px;
+	h1.archive-title {
+		padding: 0;
+		margin: 0;
+		font-size: 40px;
+	}
+}
+
+/**
+ * 7.0 Footer
+ * ----------------------------------------------------------------------------
+ */
+
+.site-footer {
+	font-size: 14px;
+	text-align: center;
+  border-top: 2px $yellow solid;
+	a {
+		font-style: italic;
+		color: $blue;
+	}
+}
+
+.site-footer .widget-area,
+.sidebar .site-footer {
+	text-align: left;
+}
+
+.site-footer {
+
+}
+
+.site-footer .sidebar-container {
+	padding: 20px 0;
+}
+
+.site-footer .widget-area {
+	margin: 0 auto;
+	// max-width: 1040px;
+	width: 100%;
+}
+
+.sidebar .site-footer .widget-area {
+	max-width: 724px;
+	position: relative;
+	left: -158px;
+}
+
+.site-footer .widget {
+	background: transparent;
+	color: #fff;
+	float: left;
+	margin-right: 20px;
+	width: 245px;
+}
+
+.sidebar .site-footer .widget {
+	width: 228px;
+}
+
+.sidebar .site-footer .widget:nth-of-type(4),
+.sidebar .site-footer .widget:nth-of-type(3) {
+	margin-right: 0;
+}
+
+.site-footer .widget a {
+	color: #e6402a;
+}
+
+.site-footer .widget-title,
+.site-footer .widget-title a,
+.site-footer .wp-caption-text {
+	color: #fff;
+}
+
+.site-info {
+	padding: 30px 0;
+	width: 100%;
+}
+
+.footer-info {
+	display: block;
+	a {
+		margin-right: 5px;
+	}
+}
+.genericon-wordpress {
+	margin-right: 5px;
+}
+
+#wpstats {
+	display: block;
+	margin: -10px auto 0;
+}

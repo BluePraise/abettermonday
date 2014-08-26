@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'American Typewriter Std Med';
+  src: url('ATBold.eot'); /* IE9 Compat Modes */
+  src: url('ATBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('ATBold.woff') format('woff'), /* Modern Browsers */
+       url('ATBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('ATBold.svg#15bb6bf91d887dfbdb0d0257e83a8093') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+

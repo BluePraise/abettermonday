@@ -13,7 +13,7 @@
 // These variables are used throughout compass, but specifically within the
 // compass-normalize extension.
 // /
-@import "icons/*.png";
+// @import "icons/*.png";
 $legacy-support-for-ie  : true;
 $legacy-support-for-ie6 : $legacy-support-for-ie;
 $legacy-support-for-ie7 : $legacy-support-for-ie;
@@ -26,8 +26,8 @@ $legacy-support-for-ie7 : $legacy-support-for-ie;
 // use in the normalize.scss file.
 // @see http://compass-style.org/reference/compass/typography/vertical_rhythm/
 
-$base-font-size:   12; // The font size set on the root html element.
-$base-line-height: 18; // This line-height determines the basic unit of vertical rhythm.
+$base-font-size:   18; // The font size set on the root html element.
+$base-line-height: 24; // This line-height determines the basic unit of vertical rhythm.
 
 $h1-font-size: 2          * $base-font-size;
 $h2-font-size: 1.5        * $base-font-size;
@@ -54,40 +54,41 @@ $h6-font-size: 0.75       * $base-font-size; // 8px
 $verdana:         Verdana, Tahoma, "DejaVu Sans", sans-serif;
 $tahoma:          Tahoma, Verdana, "DejaVu Sans", sans-serif;
 $arial:           Arial, Helvetica, sans-serif;
-$lato:            "Lato", Helvetica, sans-serif;
-$yesteryear:      'Yesteryear', cursive;
+
 
 // Project-specific fonts
 // Put any font families here that are specific to your project
-
+$sourcesanspro: 'Source Sans Pro', sans-serif;
+$atbold:        'ATBold';
+$atlight:       'ATLight';
+$atmed:         'ATMed';
 
 // For an explanation of why "sans-serif" is at the end of this list, see
 // http://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
 $courier:         "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
 
-// Now create some variables for the font stacks we want to use on this site.
-//$base-font-family: $istok; // The font family set on the html element.
-//$font-body:        $istok;
-//$font-monospace:   $courier;
+// Now create some variables for the font stacks we want to use on this site
+$base-font-family: $atmed; // The font family set on the html element.
+$font-body:        $base-font-family;
+$font-monospace:   $courier;
 //$form-font-family: $istok;
-
-
-// Colors, etc.
-$mainColor      : #31CF01;
-$secondaryColor : #080808;
-$alertColor     : #e70000;
-$successColor   : #78af01;
-$highlightColor : #ffff99;
-$txtColor       : #2f2f2f;
 
 $black          : #000;
 $white          : #fff;
 $red            : #FC6C6C; //rgb(252, 108, 108);
-$brown          : #361D02;
 // $blue           : #1A6DD8; Original Blue
 $aquablue       : #6bd1e1;
 $blue           : #2098B7;
-$yellow         : #FF0; //rgba(255, 255, 0
+$yellow         : #FFE600;
+
+// Colors, etc.
+$mainColor      : #6D6E70; // Gray
+$secondaryColor : #6A3A0C; // Brown
+$alertColor     : $red;
+$successColor   : #78af01;
+$highlightColor : $yellow;
+$txtColor       : $mainColor;
+
 
 $grey 					: #5F5F5F;
 $grey-light     : #dddddd;
@@ -143,6 +144,6 @@ $column-width           : 60px;
 $gutter-width           : 20px;
 $grid-padding           : $gutter-width;
 
-// $container-style 				: magic;
+$container-style 				: true;
 
 $show-grid-backgrounds  : false;

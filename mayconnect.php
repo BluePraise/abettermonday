@@ -25,9 +25,8 @@ function mayconnect_launch() {
   remove_filter( 'excerpt_more', 'new_excerpt_more');
   // add_action( 'pre_get_posts', 'get_my_work' );
   add_filter( 'excerpt_more', 'new_excerpt_more');
-  add_filter('post_class', 'category_id_class');
-  add_filter('body_class', 'category_id_class');
-  add_action( 'pre_get_posts', 'exclude_category' );
+  // add_filter('post_class', 'category_id_class');
+  // add_filter('body_class', 'category_id_class');
 
 } /* end */
 
@@ -72,7 +71,6 @@ function scripts_and_styles() {
 
     wp_deregister_script('jquery');
     wp_deregister_style( 'genericons', get_stylesheet_directory_uri() . '/genericons/genericons.css', array(), '2.09' );
-    wp_deregister_style( 'twentythirteen-fonts', twentythirteen_fonts_url(), array(), null );
     wp_deregister_style( 'twentythirteen-style-css');
 
     // register main stylesheets
@@ -105,13 +103,9 @@ function scripts_and_styles() {
 
   function webfont_google_fonts() {
   if ( !is_admin() ) {
-    wp_register_style( 'webfont_yesteryear', 'http://fonts.googleapis.com/css?family=Yesteryear', '', null, 'screen' );
-    wp_register_style( 'webfont_lato', 'http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic', '', null, 'screen' );
-    wp_register_style( 'webfont_ptserif', 'http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic', '', null, 'screen' );
-
-    wp_enqueue_style( 'webfont_lato' );
-    wp_enqueue_style( 'webfont_yesteryear' );
-    wp_enqueue_style( 'webfont_ptserif' );
+    wp_register_style( 'webfont_sourcesanspro', 'http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900', '', null, 'screen' );
+    wp_register_style( 'webfont_sourcesanspro', 'http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900', '', null, 'screen' );
+    wp_enqueue_style( 'webfont_sourcesanspro' );
   }
 }
 
@@ -122,7 +116,6 @@ function scripts_and_styles() {
 function mayconnect_theme_support() {
   add_theme_support( 'custom-background',
       array(
-      // 'default-image' => get_template_directory_uri() . 'bg.png',  // background image default
       'default-image' => '',  // background image default
       'default-color' => 'FAFAFA', // background color default (dont add the #)
       'wp-head-callback' => '_custom_background_cb',
@@ -131,12 +124,8 @@ function mayconnect_theme_support() {
       )
   );
 
-
   add_theme_support( 'post-thumbnails' );
   set_post_thumbnail_size( 150, 150);
-  add_image_size( 'portfolio-thumb', 150, 150 );
-  add_image_size( 'portfolio-cat-archive', 500, 9999 );
-
 
 	// Switches default core markup for search form, comment form, and comments
 	// to output valid HTML5.
@@ -153,7 +142,7 @@ function mayconnect_main_menu(){
     wp_nav_menu(array(
     	'container' => false,                           // remove nav container
     	'container_class' => '',           				      // class of container (should you choose to use it)
-    	'menu' => __( 'Main Menu', 'Mayconnect' ),  		  // nav name
+    	'menu' => __( 'Main Menu', 'abm' ),       		  // nav name
       'menu_class' => 'nav-menu',         			      // adding custom nav class
     	'theme_location' => 'Main Menu',                 // where it's located in the theme
     	'before' => '',                                 // before the menu
@@ -167,8 +156,7 @@ function mayconnect_main_menu(){
 function register_mayconnect_menu() {
   register_nav_menus(
     array(
-      'main-menu' => __( 'Main Menu' ),
-      'page-menu' => __( 'Page Menu' )
+      'main-menu' => __( 'Main Menu' )
     )
   );
 }
@@ -182,7 +170,7 @@ function mayconnect_widgets_init() {
   register_sidebar( array(
     'name'          => 'Main left sidebar',
     'id'            => 'left-archive',
-    'description'   => __( 'wordt zichtbaar bovenaan in de linkerzijde van je pagina', 'mayconnect'),
+    'description'   => __( 'wordt zichtbaar bovenaan in de linkerzijde van je pagina', 'abm'),
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget'  => '</aside>',
     'before_widget' => '',
@@ -191,7 +179,7 @@ function mayconnect_widgets_init() {
     'after_title'   => '</h3>'));
 
   register_sidebar( array(
-    'name'          => __( 'Secondary Widget Area', 'mayconnect-theme' ),
+    'name'          => __( 'Secondary Widget Area', 'abm' ),
     'id'            => 'sidebar-2',
     'description'   => __( 'Appears on posts and pages in the sidebar.', 'mayconnect-theme' ),
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -272,54 +260,6 @@ function custom_excerpt_more($more) {
   return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">More ...</a>';
 }
 
-// add category nicenames in body and post class
-function category_id_class($classes) {
-  global $post;
-  foreach((get_the_category($post->ID)) as $category)
-    $classes[] = $category->category_nicename;
-  return $classes;
-}
-
-function sort_category() {
-  $categories = get_the_category();
-  $separator = ' ';
-  $output = '';
-
-  if($categories){
-    foreach($categories as $category) {
-    // $output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$separator;
-    //$output .=  ($category->term_id ) . $separator . ( $category->name ) . $separator . $category->cat_name . $separator;
-      $output .=  ($category->term_id );
-
-      return $output;
-    }
-  }
-}
-
-function exclude_category( $query ) {
-  if ( $query->is_home() && $query->is_main_query() ) {
-      $query->set( 'cat', '-1,-1347' );
-  }
-}
-
-function get_work_cat( $query ) {
-  $args = array('cat' => 22);
-  $cat_posts = new WP_Query( $args );
-  if ( $query->is_home() && $query->is_main_query() ) {
-      $query->set( 'cat', '22' );
-  }
-}
-
-function get_portfolio() {
-  query_posts('cat=22&showposts=400');
-}
-function get_blog_posts() {
-  query_posts('cat=-22&showposts=3');
-}
-
-//$query = new WP_Query( 'category=22' );
-
-
 //=============================================
 // DASHBOARD STYLING
 //=============================================
@@ -354,7 +294,5 @@ function mayconnect_dashboard_widget_function() {
         echo "Welkom | ";
     };
 }
-
-
 
 ?>

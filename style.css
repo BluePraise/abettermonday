@@ -1,5 +1,5 @@
 /*!
-Theme Name: Blank Theme
+Theme Name: A better monday theme
 Theme URI: http://mayconnect.org/wordpress
 Author: @omg-its-maggie
 Author URI: http://mayconnect.org/
@@ -10,3 +10,5 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: responsive, blogging, clean, white, mobile
 This theme, like WordPress, is licensed under the GPL.
 */
+
+@import 'stylesheets/';

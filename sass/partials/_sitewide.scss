@@ -3,11 +3,6 @@
 	z-index: -999;
 	width: 100%;
 }
-/**
- * Basic Structure
- * ---------------------------------------------------------------------------
- */
-
 #page {
 	overflow: hidden;
 	@include container();
@@ -15,20 +10,19 @@
   	@include susy-grid-background;
 	}
 	@include at-breakpoint($wide-mobile) {
-    @include container;
+		@include container();
     @if ($show-grid-backgrounds) {
   		@include susy-grid-background;
 		}
   }
   @include at-breakpoint($tablet) {
-    @include container;
+		@include container();
     @if ($show-grid-backgrounds) {
   		@include susy-grid-background;
 		}
   }
   @include at-breakpoint($desktop) {
-    @include container;
-    margin-bottom: 50px;
+		@include container();
     @if ($show-grid-backgrounds) {
   		@include susy-grid-background;
 		}
@@ -37,54 +31,16 @@
 
 #main {
 	overflow: hidden;
-	margin-top: 60px;
-	background-color: #FAFAFA;
-	.category-work & {
-		margin-top: 10px;
-	}
+
 }
 .site-main .sidebar-container {
-	margin-top: 115px;
+
 }
 
 .site-main .sidebar-inner {
-	// margin: 0 auto;
-	// max-width: 1040px;
+
 }
 
-.home-link-wrapper {
-	margin-bottom: 50px;
-	.home-link {
-		clear: both;
-		color: $blue;
-		&:hover {
-			-webkit-transition: width 400ms ease, background 400ms ease;
-			transition:         width 400ms ease, background 400ms ease;
-		}
-		&:visited {
-			color: $blue;
-		}
-		.site-title {
-			color: $black;
-			font-weight: bold;
-			margin: 0;
-			padding: 70px 0 15px;
-	  	@include font-size(20, 40);
-			@include at-breakpoint($tablet) {
-				padding: 60px 0 15px;
-	  		@include font-size(30, 50);
-			}
-			@include at-breakpoint($desktop) {
-			  @include font-size(40, 50);
-			}
-		}
-		.site-description {
-			color: $black;
-			font: 300 24px "Lato", Helvetica, sans-serif;
-			margin: 0;
-		}
-	}
-}
 
 .site-header .search-form {
 	position: absolute;
@@ -124,27 +80,17 @@
 }
 
 .site-content {
-	// border-left: yellow 2px solid;
-	padding-left: 1em;
-	@include at-breakpoint($tablet) {
-		@include suffix(2);
-	}
+
 }
 .hentry {
 	// padding: 40px 0;
 }
-
-/**
- * 5.10 Search Results/No posts
- * ----------------------------------------------------------------------------
- */
 
 .page-header {
 	background-color: none;
 }
 
 .page-title {
-	font: 300 30px "Lato", Helvetica, sans-serif;
 	margin: 0 auto;
 	padding: 30px 0;
 	width: 100%;
@@ -172,20 +118,16 @@
 	}
 }
 
-/**
- * 7.0 Footer
- * ----------------------------------------------------------------------------
- */
-
-.site-footer {
+footer {
+	margin-top: 50px;
 	font-size: 14px;
 	text-align: center;
-  border-top: 2px $yellow solid;
-	a {
-		font-style: italic;
-		color: $blue;
+	min-height: 70px;
+	span {
+		display: block;
 	}
 }
+
 
 .site-footer .widget-area,
 .sidebar .site-footer {
@@ -202,7 +144,6 @@
 
 .site-footer .widget-area {
 	margin: 0 auto;
-	// max-width: 1040px;
 	width: 100%;
 }
 

@@ -1,0 +1,7 @@
+.contact-form-button {
+  margin-top: 20px;
+  float: right;
+  @include at-breakpoint($desktop) {
+    float: left;
+  }
+}

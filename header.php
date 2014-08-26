@@ -14,7 +14,7 @@
 
 	<?php if (is_search()) echo '<meta name="robots" content="noindex, nofollow" />'; ?>
 
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
+	<title><?php wp_title( '|', true, 'right' ); ?><?php bloginfo('name');?></title>
 	<meta name="description" content="<?php bloginfo('description'); ?>" />
 	<meta name="Copyright" content="Copyright &copy; <?php bloginfo('name'); ?> <?php echo date('Y'); ?>. All Rights Reserved.">
 	<meta name="viewport" content="width=device-width">
@@ -28,17 +28,14 @@
 
 <body <?php body_class(); ?>>
 
-		<div id="page" class="hfeed">
+	<div id="page" class="hfeed">
 
-			<header class="site-header" role="banner">
-				<nav class="navbar main-navigation" role="navigation">
-					<h1 class="menu-toggle h2"><?php _e( 'Menu', 'Mayconnect' ); ?></h1>
-					<a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'mayconnect-theme' ); ?>"><?php _e( 'Skip to content', 'mayconnect-theme' ); ?></a>
-						<?php mayconnect_main_menu(); ?>
-					<?php get_search_form(); ?>
-				</nav><!-- #site-navigation -->
-			</header><!-- .site-header -->
+		<header class="site-header" role="banner">
+			<a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'abm' ); ?>"><?php _e( 'Skip to content', 'mayconnect-theme' ); ?></a>
+			<nav class="main-navigation" role="navigation"><?php mayconnect_main_menu(); ?></nav><!-- #site-navigation -->
 
-		<div id="main" class="site-main not-front">
+		</header><!-- .site-header -->
 
-
+		<h1 class="invisible"><?php bloginfo('name'); ?></h1>
+		<div class="abm-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/abm.png"></div>
+		<div id="main" class="site-main">

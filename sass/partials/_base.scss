@@ -13,10 +13,13 @@
 	-moz-box-sizing:    border-box;
 	box-sizing:         border-box;
 }
-
 html {
 	overflow-y: scroll;
-	background-color: #FAFAFA;
+	height: 100%;
+	-webkit-font-smoothing: antialiased;   // maxvoltar.com/archive/-webkit-font-smoothing
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 62.5%;
+	overflow-y: scroll;
 	height: 100%;
 }
 
@@ -25,35 +28,29 @@ button,
 input,
 select,
 textarea {
-	font-family: "Lato", Helvetica, sans-serif;
 	font-weight: 300;
 }
 
 body {
-	color: #141412;
-	background-color: #FAFAFA;
-	line-height: 1.5;
 	min-height: 100%;
+	font-family: $base-font-family;
+	// font-family: 'ATLight';
+	@include font-size();
+	color: $mainColor;
+	font-weight: 400;
 }
 
 body.admin-bar
 	.site-header {
-	position:fixed;
-	top: 47px;
-	z-index: 499;
-	height: 40px;
-	@include at-breakpoint($tablet) {
-	  top: 32px;
-	}
 }
 
 a {
 	font-weight: bold;
-	color: $blue;
+	color: $mainColor;
 }
 
 a:visited {
-	color: $blue;
+	color: $secondaryColor;
 }
 
 a:focus {
@@ -75,22 +72,14 @@ h4,
 h5,
 h6 {
 	clear: both;
-	font-family: 'PT Serif', serif;
 	line-height: 1.3;
 }
 
 h1, .h1 {
-	font-family: 'PT Serif', serif;
-  color: $brown;
 	font-size: 48px;
-	.home & {
-	  font-family: 'Yesteryear', cursive;
-	}
 }
 
 h2, .h2 {
-  font-family: 'Yesteryear', cursive;
-  color: $brown;
 	font-size: 30px;
 	margin: 25px 0;
 }
@@ -140,9 +129,6 @@ mark {
 
 p {
 	margin: 0 0 15px;
-	// .single-post & {
-	// 	margin: 0;
-	// }
 }
 
 code,
@@ -188,9 +174,7 @@ q:after {
 }
 
 blockquote {
-	font-family: 'PT Serif', serif;
 	font-size: 16px;
-  color: $brown;
 	font-style: italic;
 	font-weight: 300;
 	margin-left: 10px;
@@ -280,6 +264,8 @@ img {
 	-ms-interpolation-mode: bicubic;
 	border: 0;
 	vertical-align: middle;
+	max-width: 100%;
+	height: auto;
 }
 
 svg:not(:root) {
